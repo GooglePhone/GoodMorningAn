@@ -13,22 +13,117 @@
 		margin-right: auto;
 		width: 50%;
 		}
+	.annotation {
+		font-size: 5px;
+		color: rgb(169,169,169);
+		}
+	.enName {
+		font-size: 5px;
+		font-family: Comic Sans MS;
+		}
+	.price {
+		float: right;
+		padding-right: 40%
+		}
+</style>
+<style type="text/css">
+#clock {
+  background: #0f3854;
+  background: -webkit-radial-gradient(center ellipse, #f6ff96 0%, #ffffff 70%);
+  background: radial-gradient(ellipse at bottom, #f6ff96 0%, #ffffff 70%);
+  background-size: 100%;
+  margin:0 auto;
+  width: 80%;
+}
+
+
+#clock > p {
+  margin: 0;
+  padding: 0;
+}
+
+#clock {
+  font-family: 'Share Tech Mono', monospace;
+  color: #474747;
+  text-align: center;
+  margin-bottom: 1%; 
+  text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);
+}
+#clock .time {
+  letter-spacing: 0.05em;
+  padding: 5px 0;
+}
+#clock .date {
+  letter-spacing: 0.1em;
+}
 </style>
 <script>
-	var blocks = [{"blockName":"好的餐點","items":[
-		{"name":"好蛋+餅","enName":"chinese omlete","price":"40"},
-		{"name":"招牌小豬蛋餅","enName":"chinese omlete","price":"60"},
+	var blocks = [{"blockName":"熱門排行","items":[
+		{"name":"招牌小豬蛋+餅","enName":"Pork ground meat + Egg(Chinese omlete)","price":"60",
+		"annotation":"(豬絞肉+蔥+蛋+手做餅皮+自製醬油+配料)"},
+		{"name":"自己做的手工菜頭粿","enName":"Fried radish cake + Egg","price":"60",
+		"annotation":"(老在來米+小麥+白蘿蔔+士林香腸+東港蝦米+台灣豬肉+油蔥酥+蛋+配料)"},
+		{"name":"金豬蛋","enName":"Cheese + Pork ground meat + Egg(Chinese omlete)","price":"60",
+		"annotation":"(起士+豬絞肉+蔥+蛋+手作餅皮+自製醬油+配料)"},
 		
+	]},{"blockName":"手作餅皮","items":[
+		{"name":"蛋+餅","enName":"Chinese omlete","price":"40",
+		"annotation":"(蛋+手做餅皮+自製醬油+配料)"},
+		{"name":"肉鬆了蛋+餅","enName":"Pork floss Chinese omlete","price":"50",
+		"annotation":"(肉鬆+蛋+手做餅皮+自製醬油+配料)"},
+		{"name":"起司蛋+餅","enName":"Cheese Chinese omlete","price":"50",
+		"annotation":"(起司+蛋+手做餅皮+自製醬油+配料)"},
+		{"name":"麻辣肉燥蛋+餅","enName":"Spicy pork ground meat Chinese omlete","price":"50",
+		"annotation":"(自製麻辣+絞肉+蛋+手做餅皮+自製醬油+配料)"},
+		{"name":"小豬大份量蛋+餅","enName":"Pork ground meat(Big size)","price":"80",
+		"annotation":"(豬絞肉+洋蔥+蛋+手做餅皮+自製醬油+配料)"},
+		{"name":"醬爆燒肉蛋+餅","enName":"Roast meat with sauce","price":"80",
+		"annotation":"(豬梅花+洋蔥+蛋+手做餅皮+自製醬油+配料)"},
+		{"name":"麻辣醬爆燒肉蛋+餅","enName":"Roast meat with spicy sauce","price":"90",
+		"annotation":"(自製麻辣醬+豬梅花+洋蔥+蛋+手做餅皮+自製醬油+配料)"},
+		{"name":"大金豬蛋+餅","enName":"Pork ground meat with double cheese","price":"120",
+		"annotation":"(起士+豬絞肉+蔥+蛋+手做餅皮+自製醬油+配料)"},
 	]},
-	{"blockName":"壓扁麵包系列","items":[
-		{"name":"起司蛋","enName":"chinese omlete","price":"40"},
-		{"name":"鮪魚起司","enName":"chinese omlete","price":"60"},
-		
+	{"blockName":"壽司米飯","items":[
+		{"name":"蔥肉飯","enName":"Scallions and pork ground meat with rice","price":"80",
+		"annotation":"(蔥+絞肉+蛋+自製醬油)"},
+		{"name":"麻辣蔥肉飯","enName":"Scallions and pork ground meat with rice (spicy)","price":"90",
+		"annotation":"(自製麻辣醬+蔥+絞肉+蛋+自製醬油)"},
+		{"name":"燒肉丼飯","enName":"Roast meat with rice","price":"80",
+		"annotation":"(梅花肉片+洋蔥+自製醬油+蛋)"},
+		{"name":"麻辣燒肉丼飯","enName":"Spicy roast meat with rice","price":"90",
+		"annotation":"(自製麻辣醬+梅花肉片+洋蔥+自製醬油+蛋)"},
+		{"name":"鄉村蕃茄醬拌飯","enName":"Tomato and pork ground meat with stewed rice","price":"90",
+		"annotation":"(牛番茄+洋蔥+蒜頭+豬肉+拔絲起士)"},
+		{"name":"麻辣蕃茄醬拌飯","enName":"Tomato and pork ground meat with stewed rice (spicy)","price":"100",
+		"annotation":"(自製麻辣醬+牛番茄+洋蔥+蒜頭+豬肉+拔絲起士)"},
+		{"name":"咖哩雞肉拌飯","enName":"Curry chicken with rice","price":"90",
+		"annotation":"(紅綠咖哩+洋蔥+紅蘿蔔+馬鈴薯+雞肉+拔絲起士)"},
+		{"name":"辣咖哩雞肉拌飯","enName":"Spicy curry chicken with rice","price":"100",
+		"annotation":"(自製麻辣醬+紅綠咖哩+洋蔥+紅蘿蔔+馬鈴薯+雞肉+拔絲起士)"},
 	]},
-	{"blockName":"茶/鮮果汁/咖啡","items":[
-		{"name":"台灣好紅茶","enName":"black tea","price":"40"},
-		{"name":"鮪魚起司","enName":"tune cheese","price":"60"},
-		
+	{"blockName":"好吃帶走","items":[
+		{"name":"整條菜頭粿","enName":"Fried radish cake (To go)","price":"200",
+		"annotation":"(手切一條十片，新鮮自己做不添加防腐劑)"}
+	]},
+	{"blockName":"茶/鮮果汁/咖啡","note":"熱飲需多十元","items":[
+		{"name":"台灣好紅茶","enName":"Taiwan black tea","price":"30",
+		"annotation":"(老叢果樹園旁邊種植的紅茶，紅茶帶有果樹香味，產地：南投)"},
+		{"name":"香醇奶茶","enName":"Fresh pineapple black tea","price":"40",
+		"annotation":"(新鮮台灣金鑽鳳梨+冰糖熬煮)"},
+		{"name":"金鑽鳳梨紅茶","enName":"Roast meat with rice","price":"40",
+		"annotation":"(梅花肉片+洋蔥+自製醬油+蛋)"},
+		{"name":"新鮮水果冰茶","enName":"Taiwan fresh fruits tea","price":"50",
+		"annotation":"(新鮮蘋果+鳳梨+芒果+芭樂+柳橙+百香果+冰糖熬煮)"},
+		{"name":"紅茶鮮奶","enName":"Fresh milk black tea","price":"50",
+		"annotation":"(台灣紅茶+鮮奶)"},
+		{"name":"黑糖鮮奶","enName":"Brown sugar milk tea","price":"60",
+		"annotation":"(台灣黑糖+鮮奶)"},
+		{"name":"美式咖啡","enName":"American Coffee","price":"40",
+		"annotation":""},
+		{"name":"那提咖啡","enName":"Latte Coffee","price":"50",
+		"annotation":""},
+	
 	]}
 ];
 	var titleImgUrl = './image/title.jpg';
@@ -43,6 +138,8 @@
 				blocks : blocks,
 				address:address,
 				telephone:telephone,
+				time: '',
+		        date: '',
 				titleImgUrl:titleImgUrl,
 				roleImgUrl:roleImgUrl,
 				jobtime:jobtime,
@@ -51,18 +148,45 @@
 
 			}
 		})
+
+
+
+		var week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+		var timerID = setInterval(updateTime, 1000);
+		updateTime();
+		function updateTime() {
+		    var cd = new Date();
+		    app.time = zeroPadding(cd.getHours(), 2) + ':' + zeroPadding(cd.getMinutes(), 2) + ':' + zeroPadding(cd.getSeconds(), 2);
+		    app.date = zeroPadding(cd.getFullYear(), 4) + '-' + zeroPadding(cd.getMonth()+1, 2) + '-' + zeroPadding(cd.getDate(), 2) + ' ' + week[cd.getDay()];
+		};
+
+		function zeroPadding(num, digit) {
+		    var zero = '';
+		    for(var i = 0; i < digit; i++) {
+		        zero += '0';
+		    }
+		    return (zero + num).slice(-digit);
+		}
+
 	})
 
 </script>
 </head>
 <body>
 	<div id="app" style="display: block;margin-left: auto;margin-right: auto;width: 80%;">
-		<img :src="titleImgUrl" style="width:60%" class="center"/>
-		<p style="text-align: center; font-size: 50px"></p>
+		<div id="clock">
+			<img :src="titleImgUrl" style="width:100%" class="center"/>
+		    <p class="date">{{ date }}</p>
+		    <p class="time">{{ time }}</p>
+		</div>
 		<div v-for="(block, index) in blocks">
-			<div style="background-color: black"><strong style="color:white">{{block.blockName}}</strong></div>
+			<div style="background-color: black;padding:0.2%"><strong style="color:white;padding-left:1%;">{{block.blockName}}<span v-if="block.note != null" style="color:red;float: right;margin-right:38%">熱飲需加價十元</span></strong></div>
 			<div v-for="(item, index) in block.items">
-				{{item.name}}<span style="size:10%">({{item.enName}})</span>&nbsp;&nbsp;價格:{{item.price}}
+				{{item.name}}
+				<span class="enName">&nbsp;{{item.enName}}</span>
+				&nbsp;&nbsp;
+				<span class="price">價格:&nbsp;{{item.price}}</span>
+				<span v-if="item.annotation != null" class="annotation"><br>{{item.annotation}}</span>
 			</div>
 			<br>
 		</div>
