@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<title>Good Morning,An 早餐專賣</title>
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script src="./js/vue2.js"></script>
+
+<style>
+	.center {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+		}
+</style>
+<script>
+	var blocks = [{"blockName":"好的餐點","items":[
+		{"name":"好蛋+餅","enName":"chinese omlete","price":"40"},
+		{"name":"招牌小豬蛋餅","enName":"chinese omlete","price":"60"},
+		
+	]},
+	{"blockName":"壓扁麵包系列","items":[
+		{"name":"起司蛋","enName":"chinese omlete","price":"40"},
+		{"name":"鮪魚起司","enName":"chinese omlete","price":"60"},
+		
+	]},
+	{"blockName":"茶/鮮果汁/咖啡","items":[
+		{"name":"台灣好紅茶","enName":"black tea","price":"40"},
+		{"name":"鮪魚起司","enName":"tune cheese","price":"60"},
+		
+	]}
+];
+	var titleImgUrl = './image/title.jpg';
+	var roleImgUrl = './image/role.jpg';
+	var address = '台中市北區博館路東街九巷一號';
+	var telephone = '電話:04-24218869';
+	var jobtime = '營業時間a.m. 7:00 - p.m. 2:00';
+	$(document).ready(function() {
+		var app = new Vue({
+			el : '#app',
+			data : {
+				blocks : blocks,
+				address:address,
+				telephone:telephone,
+				titleImgUrl:titleImgUrl,
+				roleImgUrl:roleImgUrl,
+				jobtime:jobtime,
+			},
+			methods : {
+
+			}
+		})
+	})
+
+</script>
+</head>
+<body>
+	<div id="app" style="display: block;margin-left: auto;margin-right: auto;width: 80%;">
+		<img :src="titleImgUrl" style="width:60%" class="center"/>
+		<p style="text-align: center; font-size: 50px"></p>
+		<div v-for="(block, index) in blocks">
+			<div style="background-color: black"><strong style="color:white">{{block.blockName}}</strong></div>
+			<div v-for="(item, index) in block.items">
+				{{item.name}}<span style="size:10%">({{item.enName}})</span>&nbsp;&nbsp;價格:{{item.price}}
+			</div>
+			<br>
+		</div>
+		<div style="text-align: center;padding-top: 10%">{{address}}<br>{{telephone}}<br>{{jobtime}}</div><div><img :src="roleImgUrl" style="width:60%" class="center"/></div>
+	</div>
+</body>
+</html>
