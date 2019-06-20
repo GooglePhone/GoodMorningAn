@@ -47,7 +47,7 @@
   color: #474747;
   text-align: center;
   margin-bottom: 1%; 
-  text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);
+ /* text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);*/
 }
 #clock .time {
   letter-spacing: 0.05em;
@@ -56,6 +56,31 @@
 #clock .date {
   letter-spacing: 0.1em;
 }
+</style>
+<style type="text/css">
+/* latin */
+@font-face {
+  font-family: 'Share Tech Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Share Tech Mono'), local('ShareTechMono-Regular'), url(https://fonts.gstatic.com/s/sharetechmono/v8/J7aHnp1uDWRBEqV98dVQztYldFcLowEFA87Heg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style> 
+#titleDiv {
+  position: relative;
+  animation-name: example;
+  animation-duration: 1.2s;
+  transition: background 2s, transform 2s;
+}
+
+@keyframes example {
+  0%   {left:2000px;}
+  50%  {left:-200px;transform: rotate(20deg)}
+  100% {left:0px;}
+}
+
 </style>
 <script>
 	var blocks = [{"blockName":"熱門排行","items":[
@@ -151,7 +176,8 @@
 
 
 
-		var week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+		//var week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+		var week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
 		var timerID = setInterval(updateTime, 1000);
 		updateTime();
 		function updateTime() {
@@ -175,7 +201,8 @@
 <body>
 	<div id="app" style="display: block;margin-left: auto;margin-right: auto;width: 80%;">
 		<div id="clock">
-			<img :src="titleImgUrl" style="width:100%" class="center"/>
+			<div id="titleDiv"><p style="font-size:180%;font-weight:900;">Ｇｏｏｄ Ｍｏｒｎｉｎｇ, Ａｎ 早餐專賣</p></div>
+			<!-- <img :src="titleImgUrl" style="width:100%" class="center"/> -->
 		    <p class="date">{{ date }}</p>
 		    <p class="time">{{ time }}</p>
 		</div>
@@ -190,7 +217,8 @@
 			</div>
 			<br>
 		</div>
-		<div style="text-align: center;padding-top: 10%">{{address}}<br>{{telephone}}<br>{{jobtime}}</div><div><img :src="roleImgUrl" style="width:60%" class="center"/></div>
+		<div style="text-align: center;padding-top: 10%">{{address}}<br>{{telephone}}<br>{{jobtime}}</div>
+		<div><img :src="roleImgUrl" style="width:60%" class="center"/></div>
 	</div>
 </body>
 </html>
